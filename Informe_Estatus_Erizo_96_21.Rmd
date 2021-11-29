@@ -68,6 +68,7 @@ setwd(dir.1)
 #para mac
 system('~/admb-12.2/admb MAETXN')
 
+
 #system("./MAETXN")
 
 #para windows
