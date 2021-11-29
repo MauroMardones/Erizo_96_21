@@ -1,5 +1,5 @@
 ---
-title: "Rutina, análisis,  y salidas de evaluación de stock de erizo L. albus X-XI regiones 2021"
+title: "Rutina, análisis,  y salidas de evaluación de stock de erizo L. albus X-XI regiones 2021 con datos desde 1996"
 subtitle: "Documento de insumo para el Reporte 2021"
 author: "Mardones, M., Zúñiga, M.J., Barahona, N."
 date: "`r format(Sys.time(), '%B, %Y')`"
@@ -67,9 +67,7 @@ dir.pbr     <-paste(dir.0,"/PBRs_Analisys",sep="")
 setwd(dir.1)
 #para mac
 system('~/admb-12.2/admb MAETXN')
-
 #system("./MAETXN")
-
 #para windows
 #system("admb MAETXN")
 system("./MAETXN")
@@ -187,21 +185,21 @@ Aqui probé otro set de valores de M
 
 ```{r MortalidadNaturalXN, echo=F, warning=F,eval=F}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
-rango_M   <-c(0.15, 0.20, 0.23, 0.30)
+rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.22, 0.32, 0.01)
 MortalidadNatural("MAETXN",dir.0,dir.1,"/MortalidadNatural_XN",rango_M) 
 ```
 
 ```{r MortalidadNaturalXS, echo=F, warning=F,eval=F}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
-rango_M   <-c(0.15, 0.20, 0.23, 0.30)
+rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.22, 0.32, 0.01)
 MortalidadNatural("MAETXS",dir.0,dir.1,"/MortalidadNatural_XS",rango_M) 
 ```
 
 ```{r MortalidadNaturalXI, echo=F, warning=F,eval=F}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
-rango_M   <-c(0.15, 0.20, 0.23, 0.30)
+rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.15, 0.25, 0.01)
 MortalidadNatural("MAETXI",dir.0,dir.1,"/MortalidadNatural_XI",rango_M) 
 ```
@@ -370,11 +368,11 @@ deszon <- as.data.frame(deszon)
 #biot <-fortify(biot)
 
 desembarque<- ggplot(deszon) + 
-     geom_line(aes(x=years, y=data1$Ind[,2], colour = 'X Norte'), size=0.5)+
-     geom_line(aes(x=years, y=data2$Ind[,2], color = 'X Sur'), size=0.5)+
-     geom_line(aes(x=years, y=data3$Ind[,2], color = 'XI'), size=0.5)+
+     geom_line(aes(x=years, y=data1$Ind[,2], colour = 'X Norte'), size=1.3)+
+     geom_line(aes(x=years, y=data2$Ind[,2], color = 'X Sur'), size=1.3)+
+     geom_line(aes(x=years, y=data3$Ind[,2], color = 'XI'), size=1.3)+
       labs(x = '', y = 'Desembarques corregidos (t.)')  +
-    scale_x_continuous(breaks = seq(from = years[1], to = years[nyears], by = 5)) +
+    scale_x_continuous(breaks = seq(from = years[1], to = years[nyears], by = 2)) +
     #scale_colour_manual("", 
      #                 breaks = c('X Norte','X Sur','XI'),
       #                values = c("red", "green", "blue")) +
@@ -891,7 +889,7 @@ BT <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("IC",values=c("grey45"))+
       scale_color_viridis_d(option = "C",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                            labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('Sensibilidad a la Mortalidad natural')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -905,7 +903,7 @@ BD <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "C",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                            labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5))
@@ -920,7 +918,7 @@ Ft <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "C",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                            labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -969,11 +967,12 @@ BT <- ggplot() +
       geom_line(data=VarPob,aes(y=BT1, x=years), colour=1, size=0.5)+
       geom_line(data=dataBT, aes(y=value, x=year, colour = variable), size=0.5)+
       labs(x = '', y = 'Biomasa total',colour='Loo')  +
-      scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 10)) +
+      scale_color_viridis_d(option = "C",breaks = seq(from = 1996, to = 2020, by = 2)) +
       scale_fill_manual("",values=c("grey45"))+
       theme_bw(base_size=8) +
       ggtitle('Sensibilidad a la Longitud asintótica (Loo)')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
+
 
 
 BD <- ggplot() + 
@@ -981,9 +980,9 @@ BD <- ggplot() +
       geom_line(data=VarPob,aes(y=BD1, x=years), colour=1, size=0.5)+
       geom_line(data=dataBD,aes(y=value, x=year, colour = variable), size=0.5)+
       labs(x = '', y = 'Biomasa desovante',colour='Loo')  +
-       scale_colour_discrete(breaks=paste("y",seq(1,nretros,1),sep=""),
+      scale_color_viridis_d(option = "C",breaks=paste("y",seq(1,nretros,1),sep=""),
                             labels=seq(128, 136, 0.5)) +
-      scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 10)) +
+      scale_x_continuous(breaks = seq(from = 1996, to = 2020, by = 2)) +
        scale_fill_manual("IC",values=c("grey45"))+
       theme_bw(base_size=8) +
       ggtitle('')+
@@ -994,7 +993,7 @@ Ft <- ggplot() +
       geom_line(data=dataF, aes(y=value, x=year, colour = variable), size=0.5)+
       geom_line(data=VarPob,aes(y=Ft1, x=years), colour=1, size=0.5)+
       labs(x = '', y = 'Mortalidad por pesca',colour='Loo')  +
-      scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 2)) +
+      scale_color_viridis_d(option = "C",breaks = seq(from = 1996, to = 2021, by = 2)) +
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -1011,7 +1010,8 @@ BT/BD/Ft
 
 Rt <- ggplot(VarPob) + 
     geom_line(aes(y=Rt1, x=x, colour = "Estimado Zona X Norte"), size=0.5)+
-    geom_ribbon(aes(ymin=lowerRt1, ymax=upperRt1, x=x, fill = "Intervalo de confianza asintótico"), alpha = 0.2)+
+    geom_ribbon(aes(ymin=lowerRt1, ymax=upperRt1, x=x, 
+                    fill = "Intervalo de confianza asintótico"), alpha = 0.2, fill=5)+
     labs(x = '', y = 'Reclutamientos',colour='Asesorías')  +
     scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 5)) +
     scale_colour_manual("",values=c("black"))+
@@ -1022,7 +1022,7 @@ Rt <- ggplot(VarPob) +
 
 BT <- ggplot(VarPob) + 
      geom_line(aes(y=BT1, x=x, colour = "Estimado Zona X Norte"), size=0.5)+
-     geom_ribbon(aes(ymin=lowerBT1, ymax=upperBT1, x=x, fill = ""), alpha = 0.2)+
+     geom_ribbon(aes(ymin=lowerBT1, ymax=upperBT1, x=x, fill = ""), alpha = 0.2, fill=4)+
     labs(x = '', y = 'Biomasa total',colour='Asesorías')  +
     scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 5)) +
     scale_colour_manual("",values=c("black"))+
@@ -1033,7 +1033,8 @@ BT <- ggplot(VarPob) +
 
 BD <- ggplot(VarPob) + 
      geom_line(aes(y=BD1, x=x, colour = "Estimado Zona X Norte"), size=0.5)+
-     geom_ribbon(aes(ymin=lowerBD1, ymax=upperBD1, x=x, fill = "Intervalo de confianza asintótico"), alpha = 0.2)+
+     geom_ribbon(aes(ymin=lowerBD1, ymax=upperBD1, x=x, 
+                     fill = "Intervalo de confianza asintótico"), alpha = 0.2, fill=6)+
     labs(x = '', y = 'Biomasa desovante',colour='Asesorías')  +
     scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 5)) +
     scale_colour_manual("",values=c("black"))+
@@ -1044,7 +1045,7 @@ BD <- ggplot(VarPob) +
 
 Ft <- ggplot(VarPob) + 
      geom_line(aes(y=Ft1, x=x, colour = "Estimado Zona X Norte"), size=0.5)+
-    geom_ribbon(aes(ymin=lowerFt1, ymax=upperFt1, x=x, fill = ""), alpha = 0.2)+
+    geom_ribbon(aes(ymin=lowerFt1, ymax=upperFt1, x=x, fill = ""), alpha = 0.2, fill=7)+
     labs(x = '', y = 'Mortalidad por pesca',colour='Asesorías')  +
     scale_x_continuous(breaks = seq(from = 1960, to = 2020, by = 5)) +
     scale_colour_manual("",values=c("black"))+
@@ -1600,7 +1601,7 @@ BT <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("IC",values=c("grey45"))+
       scale_color_viridis_d(option = "B",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                            labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('Sensibilidad a la Mortalidad natural')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -1614,7 +1615,7 @@ BD <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "B",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                             labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5))
@@ -1629,7 +1630,7 @@ Ft <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "B",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                             labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -2284,7 +2285,7 @@ BT <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("IC",values=c("grey45"))+
       scale_color_viridis_d(option = "A",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                             labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('Sensibilidad a la Mortalidad natural')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
@@ -2298,7 +2299,7 @@ BD <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "A",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                             labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5))
@@ -2313,7 +2314,7 @@ Ft <- ggplot() +
       scale_x_continuous(breaks = seq(from = 1996, to = 2021, by = 10)) +
       scale_fill_manual("",values=c("grey45"))+
       scale_color_viridis_d(option = "A",breaks=paste("y",seq(1,4,1),sep=""),
-                            labels=c(0.15, 0.20, 0.25, 0.30))+
+                            labels=c(0.2, 0.21, 0.22, 0.28))+
       theme_bw(base_size=8) +
       ggtitle('')+
       theme(plot.title = element_text(hjust = 0.5),legend.position="none")
