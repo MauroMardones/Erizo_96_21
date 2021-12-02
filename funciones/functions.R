@@ -253,4 +253,3 @@ run_admb<-function (fn, verbose = FALSE, mcmc = FALSE, mcmc.opts = mcmc.control(
 	}
 	invisible(res)
 }
-

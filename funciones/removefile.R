@@ -1,0 +1,43 @@
+removefileadmb<-function(dir,admb){
+
+  setwd(dir)
+  
+  file.remove(paste(admb,".htp", sep=""),
+              paste(admb,".cpp", sep=""),
+              paste(admb,".obj", sep=""),
+              paste(admb,".p01", sep=""),
+              paste(admb,".b01", sep=""),
+              paste(admb,".r01", sep=""),
+              paste(admb,".p02", sep=""),
+              paste(admb,".b02", sep=""),
+              paste(admb,".r02", sep=""),
+              paste(admb,".p03", sep=""),
+              paste(admb,".b03", sep=""),
+              paste(admb,".r03", sep=""),
+              paste(admb,".p04", sep=""),
+              paste(admb,".b04", sep=""),
+              paste(admb,".r04", sep=""),
+              paste(admb,".p05", sep=""),
+              paste(admb,".b05", sep=""),
+              paste(admb,".r05", sep=""),
+              paste(admb,".p06", sep=""),
+              paste(admb,".b06", sep=""),
+              paste(admb,".r06", sep=""),
+              paste(admb,".p07", sep=""),
+              paste(admb,".b07", sep=""),
+              paste(admb,".r07", sep=""),
+              paste(admb,".p08", sep=""),
+              paste(admb,".b08", sep=""),
+              paste(admb,".r08", sep=""),
+              paste(admb,".p09", sep=""),
+              paste(admb,".b09", sep=""),
+              paste(admb,".r09", sep=""),
+              paste(admb,".p10", sep=""),
+              paste(admb,".b10", sep=""),
+              paste(admb,".r10", sep=""),
+              paste(admb,".bar", sep=""),
+              paste(admb,".eva", sep=""),
+              paste(admb,".cor", sep=""),
+              paste(admb,".log", sep=""))
+
+}
