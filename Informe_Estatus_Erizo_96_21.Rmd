@@ -129,25 +129,25 @@ std3         <- read.table("MAETXI.std",header=T,sep="",na="NA",fill=T)
 
 ```
 
-```{r RetrospectivoXN, echo=F, warning=FALSE,eval=F}
+```{r RetrospectivoXN, echo=F, warning=FALSE,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Retrospectivo.R",sep=""))
 Retrospectivo("MAETXN",dir.0,dir.1,"/RetrospectivoXN") 
 
 ```
 
-```{r RetrospectivoXS, echo=F, warning=FALSE,eval=F}
+```{r RetrospectivoXS, echo=F, warning=FALSE,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Retrospectivo.R",sep=""))
 Retrospectivo("MAETXS",dir.0,dir.1,"/RetrospectivoXS") 
 
 ```
 
-```{r RetrospectivoXI, echo=F, warning=FALSE,eval=F}
+```{r RetrospectivoXI, echo=F, warning=FALSE,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Retrospectivo.R",sep=""))
 Retrospectivo("MAETXI",dir.0,dir.1,"/RetrospectivoXI") 
 
 ```
 
-```{r VerosimilitudXN, echo=F, warning=F,eval=F}
+```{r VerosimilitudXN, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Verosimilitud.R",sep=""))
 logRo    <- 3.17467674069
 priorRo <- seq(1.9,4.1,0.1)
@@ -155,7 +155,7 @@ Verosimilitud("MAETXN",dir.0,dir.1,"/VerosimilitudXN",logRo,priorRo)
 
 ```
 
-```{r VerosimilitudXS, echo=F, warning=F,eval=F}
+```{r VerosimilitudXS, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Verosimilitud.R",sep=""))
 logRo    <- 4.57233200892
 priorRo <- seq(3,6.5,0.1)
@@ -163,7 +163,7 @@ Verosimilitud("MAETXS",dir.0,dir.1,"/VerosimilitudXS",logRo,priorRo)
 
 ```
 
-```{r VerosimilitudXI, echo=F, warning=F,eval=F}
+```{r VerosimilitudXI, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Verosimilitud.R",sep=""))
 logRo    <- 4.82869986656
 priorRo <- seq(4.75,4.85,0.005)
@@ -172,10 +172,10 @@ Verosimilitud("MAETXI",dir.0,dir.1,"/VerosimilitudXI",logRo,priorRo)
 ```
 
 
-```{r VerosimilitudMortXI, echo=F, warning=F,eval=F}
+```{r VerosimilitudMortXI, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Verosimilitud.R",sep=""))
 logRo    <- 4.82869986656
-priorRo <- seq(4.75,4.85,0.005)
+priorRo <- seq(4,6,0.1)
 Verosimilitud("MAETXI",dir.0,dir.1,"/VerosimilitudXI",logRo,priorRo) 
 
 ```
@@ -194,41 +194,41 @@ Evaluar M en el perfil y ver la influencia de ello en la estimación
 
 Aqui probé otro set de valores de M
 
-```{r MortalidadNaturalXN, echo=F, warning=F,eval=F}
+```{r MortalidadNaturalXN, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
 rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.22, 0.32, 0.01)
 MortalidadNatural("MAETXN",dir.0,dir.1,"/MortalidadNatural_XN",rango_M) 
 ```
 
-```{r MortalidadNaturalXS, echo=F, warning=F,eval=F}
+```{r MortalidadNaturalXS, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
 rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.22, 0.32, 0.01)
 MortalidadNatural("MAETXS",dir.0,dir.1,"/MortalidadNatural_XS",rango_M) 
 ```
 
-```{r MortalidadNaturalXI, echo=F, warning=F,eval=F}
+```{r MortalidadNaturalXI, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_MortalidadNatural.R",sep=""))
 rango_M   <-c(0.2, 0.21, 0.22, 0.28)
 #rango_M   <-seq(0.15, 0.25, 0.01)
 MortalidadNatural("MAETXI",dir.0,dir.1,"/MortalidadNatural_XI",rango_M) 
 ```
 
-```{r Rango_Loo_XN, echo=F, warning=F,eval=F}
+```{r Rango_Loo_XN, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Rango_Loo.R",sep=""))
 rango_Loo   <-seq(116, 128, 0.5)
 
 Rango_Loo("MAETXN",dir.0,dir.1,"/RangoLoo_XN",rango_Loo) 
 ```
 
-```{r Rango_Loo_XS, echo=F, warning=F,eval=F}
+```{r Rango_Loo_XS, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Rango_Loo.R",sep=""))
 rango_Loo   <-seq(116, 128, 0.5)
 Rango_Loo("MAETXS",dir.0,dir.1,"/RangoLoo_XS",rango_Loo) 
 ```
 
-```{r Rango_Loo_XI, echo=F, warning=F,eval=F}
+```{r Rango_Loo_XI, echo=F, warning=F,eval=F,include=FALSE}
 source(paste(dir.fun,"Fn_Rango_Loo.R",sep=""))
 rango_Loo   <-seq(128, 136, 0.5)
 Rango_Loo("MAETXI",dir.0,dir.1,"/RangoLoo_XI",rango_Loo) 
@@ -2215,7 +2215,7 @@ Rt/BD/Ft |Rtrel/BDrel/Ftrel
 
 ##### ***4. Perfil de verosimilitud de erizo zona XI***
 
-```{r Fig_VerosimilitudXI,echo=FALSE, message=FALSE, warning=FALSE, include=T, fig.align="center", fig.cap="**Figura x**.	Perfil de verosimilitud erizo zona XI", fig.height=10, fig.width=10}
+```{r Fig_VerosimilitudXI,echo=FALSE, message=FALSE, warning=FALSE, include=T, fig.align="center", fig.cap="**Figura x**.	Perfil de verosimilitud erizo zona XI", fig.height=6, fig.width=6}
 
 source(paste(dir.fun,"functions.R",sep=""))
 
@@ -2243,11 +2243,11 @@ TLk1 <- data.frame(exp(logRo),like);colnames(TLk1)<-names
 TLk2 <- data.frame(exp(logRo),slikeval);colnames(TLk2)<-names
 
 par(mar=c(4,4,1,1))
-plot(TLk2$Ro,TLk2$Total,type="l",lwd=3,ylim=c(0,3),xlim=c(0.5,200),xaxs="i",ylab="L-min(L)",xlab="Ro",las=1,main='Erizo zona XI',cex.axis=0.7,cex.main=0.8,cex.lab=0.8)
+plot(TLk2$Ro,TLk2$Total,type="l",lwd=3,ylim=c(0,3),xlim=c(55,350),xaxs="i",ylab="L-min(L)",xlab="Ro",las=1,main='Erizo zona XI',cex.axis=0.7,cex.main=0.8,cex.lab=0.8)
 
-#lines(c(0,TLk2$Ro),rep(2,casos+1),lty=2,lwd=2)
-#for(i in 2:6){lines(TLk2$Ro,TLk2[,i],col=i,lty=2,lwd=2)}
-#legend(30,3,names[c(7,2:6)],col=1:7,lty=c(1,rep(2,6)),lwd=2,bty="n",cex=0.7)
+lines(c(0,TLk2$Ro),rep(2,casos+1),lty=2,lwd=2)
+for(i in 2:6){lines(TLk2$Ro,TLk2[,i],col=i,lty=2,lwd=2)}
+legend(300,3,names[c(7,2:6)],col=1:7,lty=c(1,rep(2,6)),lwd=2,bty="n",cex=0.7)
 
 
 ```
