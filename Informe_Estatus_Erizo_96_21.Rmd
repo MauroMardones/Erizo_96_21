@@ -71,6 +71,10 @@ system('~/admb-12.2/admb MAETXN')
 #para windows
 #system("admb MAETXN")
 system("./MAETXN")
+
+source(paste(dir.fun,"removefile.R",sep=""))
+removefileadmb(dir.1,"MAETXN") 
+
 ```
 
 ```{r PRIMER PASO CORRE MODELOS BASE XS, eval=FALSE, echo=FALSE, warning=FALSE,include=F}
@@ -79,6 +83,10 @@ setwd(dir.1)
 system("~/admb-12.2/admb MAETXS")
 #system("admb MAETXS")
 system("./MAETXS")
+
+source(paste(dir.fun,"removefile.R",sep=""))
+removefileadmb(dir.1,"MAETXS") 
+
 ```
 
 ```{r PRIMER PASO CORRE MODELOS BASE XI, eval=FALSE, echo=FALSE, warning=FALSE,include=F}
@@ -87,6 +95,9 @@ setwd(dir.1)
 system("~/admb-12.2/admb MAETXI")
 #system("admb MAETXI")
 system("./MAETXI")
+
+source(paste(dir.fun,"removefile.R",sep=""))
+removefileadmb(dir.1,"MAETXI") 
 
 ```
 
